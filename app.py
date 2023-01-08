@@ -51,7 +51,6 @@ def play():
 
       if sum(my_cards) >= 21:
         player_end_game = True
-        print(my_cards)
       else:
         choice = input("Type d to draw or p to pass: ")
     elif choice == "p":
@@ -68,14 +67,28 @@ def play():
         else:
           comp_cards.append(draw_card)
         
-      
-  print(my_cards)
-  print(comp_cards)
-
-      
-        
-
-        
+  if sum(my_cards) > 21:
+    print(f"{my_cards}, Total: {sum(my_cards)}")
+    print(f"{comp_cards}, Total: {sum(comp_cards)}")
+    print("You went over. You LOST, Computer WON")
+  elif sum(comp_cards) > 21:
+    print(f"{my_cards}, Total: {sum(my_cards)}")
+    print(f"{comp_cards}, Total: {sum(comp_cards)}")
+    print("Computer went over. You WON, Computer LOST")
+  elif sum(comp_cards) == sum(my_cards):
+    print(f"{my_cards}, Total: {sum(my_cards)}")
+    print(f"{comp_cards}, Total: {sum(comp_cards)}")
+    print("BLACKJACK")
+  elif sum(comp_cards) > sum(my_cards):
+    print(f"{my_cards}, Total: {sum(my_cards)}")
+    print(f"{comp_cards}, Total: {sum(comp_cards)}")
+    print("You LOST, Computer WON")
+  else:
+    print(f"{my_cards}, Total: {sum(my_cards)}")
+    print(f"{comp_cards}, Total: {sum(comp_cards)}")
+    print("You WON, Computer LOST")
+  
+  
 
 play()
 
